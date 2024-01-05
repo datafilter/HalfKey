@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <title>Half-Key</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="css/pico.classless.min.css"> -->
+    <link rel="stylesheet" href="css/pico.min.css">
+    <link rel="stylesheet" href="css/pico.override.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/x-icon" href="../../assets/icons/192.png">
+    <script src="scripts/main.js" type="module"></script>
+</head>
+
+<body>
+    <main class="container">
+        <h1 style="text-align:center">Half Key</h1>
+
+        <!-- Template to render saved keys -->
+        <template id="key-template">
+            <article id="articledata">
+                <h3 id="name">Name</h3>
+                <button id="edit">Edit</button>
+                <button id="run">Run</button>
+                <!-- <span id="copied-message" x-hidden="true">Copied text to clipboard!</span> -->
+
+            </article>
+        </template>
+
+        <div id="keys-container">
+            <button id="new-key">Add new key</button>
+        </div>
+
+        <dialog id="editDialog">
+            <article>
+                <h3>Edit</h3>
+                <label>
+                    Display Name
+                    <input id="set-name" name="DisplayName" placeholder="Account Xyz" aria-label="Display Name">
+                </label>
+                <label>
+                    Salt
+                    <input id="set-salt" name="Salt" placeholder="Random Word(s)" aria-label="Salt">
+                </label>
+                <label>
+                    Output Size
+                    <input id="set-size" name="OutputSize" placeholder="4" aria-label="Output Size">
+                </label>
+                <button id="edit-delete" class="outline">Delete</button>
+                <button id="edit-save" autofocus>Save</button>
+            </article>
+        </dialog>
+
+        <dialog id="deleteDialog">
+            <article id="confirmDeleteDialog">
+                <h3>Are you sure you want to delete?</h3>
+                <div class="grid">
+                    <button id="yes" class="outline">Yes</button>
+                    <button id="no" autofocus>No</button>
+                </div>
+            </article>
+        </dialog>
+
+        <dialog id="pepperDialog">
+            <article id="getPepperDialog">
+                <label>
+                    Password
+                    <input id="set-pepper" type="password" name="Pepper" placeholder=".." aria-label="Pepper">
+                </label>
+                <fieldset>
+                    <label for="terms">
+                        Validate password
+                        <input type="checkbox" id="validatePassword" name="validatePassword" disabled>
+                    </label>
+                </fieldset>
+                <button id="confirmPepper">Ok</button>
+            </article>
+        </dialog>
+
+    </main>
+</body>
+
+</html>
