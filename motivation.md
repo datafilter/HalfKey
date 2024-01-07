@@ -41,7 +41,7 @@ This article is my approach to that, but with a modification that is seemingly r
 
 ## Background - Broken trust
 
-On the security-convenience line, I consider myself to be slightly more to the left than most people. I don't use an amnesic operating system with an offline password manager. I'm not quite comfortable having all my passwords managed for me by my device/platform, so I use a password manager. And then it happened..
+On the security-convenience line, I consider myself to be slightly more to the left than most people. I don't use an amnesic operating system with an offline password manager. Nor am I quite comfortable having all my passwords managed for me by my device/platform, so I use a password manager. And then it happened..
 
 The password manager I used got hacked. ~~Twice~~ Three times. That I know of. Even though the company has hundreds of employees.
 
