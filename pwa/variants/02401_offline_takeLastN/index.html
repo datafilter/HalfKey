@@ -5,7 +5,6 @@
     <title>Half-Key</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="css/pico.classless.min.css"> -->
     <link rel="stylesheet" href="css/pico.min.css">
     <link rel="stylesheet" href="css/pico.override.css">
     <link rel="manifest" href="manifest.json">
@@ -17,14 +16,11 @@
     <main class="container">
         <h1 style="text-align:center">Half Key</h1>
 
-        <!-- Template to render saved keys -->
         <template id="key-template">
             <article id="articledata">
                 <h3 id="name">Name</h3>
                 <button id="edit">Edit</button>
                 <button id="run">Run</button>
-                <!-- <span id="copied-message" x-hidden="true">Copied text to clipboard!</span> -->
-
             </article>
         </template>
 
@@ -69,7 +65,7 @@
                     <input id="set-pepper" type="password" name="Pepper" placeholder=".." aria-label="Pepper">
                 </label>
                 <fieldset>
-                    <label for="terms">
+                    <label for="validatePassword">
                         Validate password
                         <input type="checkbox" id="validatePassword" name="validatePassword" disabled>
                     </label>
