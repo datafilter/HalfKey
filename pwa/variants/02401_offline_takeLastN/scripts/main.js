@@ -124,6 +124,20 @@ const animateRunButton = (runBtn) => {
 }
 
 const configurePepperDialog = (pepperDialog) => {
+
+    const pepperInput = pepperDialog.querySelector('#set-pepper')
+    
+    const confirmBtn = pepperDialog.querySelector("#confirmPepper")
+
+    const purgeSecrets = (pepperInput, article) => {
+        pepperInput.value = ""
+        delete article.dataset.calculated
+    }
+
+    pepperDialog.addEventListener("close", () => {
+        purgeSecrets(pepperInput, pepperDialog.article)
+    })
+
     // Close by clicking outside of dialog card
     pepperDialog.addEventListener("click", (event) => {
         if (event.target.id == pepperDialog.id) {
@@ -131,30 +145,25 @@ const configurePepperDialog = (pepperDialog) => {
         }
     })
 
-    const pepperInput = pepperDialog.querySelector('#set-pepper')
     const ENTER_keycode = 13
-    pepperInput.addEventListener("keyup", (event) => {
+
+    pepperInput.addEventListener("keyup", async (event) => {
+
         if (event.keyCode == ENTER_keycode) {
-            document.getElementById('confirmPepper').click()
+            confirmBtn.click()
+        } else {
+            const article = pepperDialog.article
+
+            const output = await combineHash(article.dataset.salt, pepperInput.value, article.dataset.outputSize)
+
+            article.dataset.calculated = output
         }
     })
-
-    const confirmBtn = pepperDialog.querySelector("#confirmPepper")
 
     confirmBtn.addEventListener("click", async (event) => {
         const article = pepperDialog.article
 
-        const pepperInput = pepperDialog.querySelector('#set-pepper')
-
-        let pepper = pepperInput.value
-        let calculated = await combineHash(article.dataset.salt, pepper, article.dataset.outputSize)
-
-        pepper = ""
-        pepperInput.value = ""
-
-        await navigator.clipboard.writeText(calculated)
-
-        calculated = ""
+        await navigator.clipboard.writeText(article.dataset.calculated)
 
         const runBtn = article.querySelector("#run")
         animateRunButton(runBtn)
