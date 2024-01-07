@@ -61,11 +61,11 @@ There are several sources of information on password managers, with varying usef
 
 While most password managers have a solid approach to zero-knowledge secure encrypted data storage, there are some differences in the algorithms used. Some follow OWASP guidelines religiously and others deviate from it where they understand the topic in depth. For example, understanding that password length is more important PBKDF iterations by doing the math.
 
-None of the audits I read had any serious issue with the security design in general. The different algorithms have all been proven to be resistant to brute-force attacks and won security competitions. However, some workarounds to access password manager data without the master password are surprisingly trivial! Thankfully most of the workarounds require root access (ie malware).
+The audits I read didn't have any issue with the security architectures in general. The various algorithms used have all been proven to be resistant to brute-force attacks and won security competitions. However, some workarounds to access password manager data without the master password are surprisingly trivial! Fortunately _most_ workarounds require root access (ie malware). It is one thing to design a secure system, but it is quite something else to ensure that there are no vulnerabilities when it is put into action.
 
 Of the password managers that seem trustworthy to me, I ranked them in order of least disgusting in terms of:  
 * __Privacy__ - information collected about you, trackers, analytics, telemetry, application permissions, etc.
-* __App size__ - Without any 3D images or any assets that could take up a lot of space, I think app size can give us a rough indication of the number of dependendencies. A password manager is just a (very) fancy text editor. It seems wild to me how some of these apps manage to be a third of a GIGABYTE. A big house of cards with potential everywhere for silly things like buffer overflows.
+* __App size__ - Without any 3D graphics or assets that could take up a lot of space, I think app size can give us a rough indication of the number of dependendencies. A password manager is just a (very) fancy text editor. It seems wild to me how some of these apps manage to be a third of a GIGABYTE. A big house of cards with potential everywhere for silly things like buffer overflows.
 
 Regardless of password manager implementation, their response time to zero-day announcents or internal company data access policies, there is little to protect you if you leave your phone unlocked with your password manager open.
 
