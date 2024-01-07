@@ -29,7 +29,7 @@ Because persistent storage on a PWA is not guaranteed, data you save on a PWA co
 The PWA is functional and can be used as-is, but doesn't yet guide the user (TBD)
 * Add in-app instructions/explainers
 https://github.com/datafilter/HalfKey/issues/4
-* Prevent the user from giving non-sensical inputs
+* Prevent the UI from accepting unexpected inputs
 https://github.com/datafilter/HalfKey/issues/3
 
 # Goals
