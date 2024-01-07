@@ -65,7 +65,7 @@ The audits I read didn't have any issue with the security architectures in gener
 
 Of the password managers that seem trustworthy to me, I ranked them in order of least disgusting in terms of:  
 * __Privacy__ - information collected about you, trackers, analytics, telemetry, application permissions, etc.
-* __App size__ - Without any 3D graphics or assets that could take up a lot of space, I think app size can give us a rough indication of the number of dependendencies. A password manager is just a (very) fancy text editor. It seems wild to me how some of these apps manage to be a third of a GIGABYTE. A big house of cards with potential everywhere for silly things like buffer overflows.
+* __App size__ - Without any 3D images or any assets that could take up a lot of space, I think app size can give us a rough indication of the number of dependendencies. A password manager is just a (very) fancy text editor. It seems wild to me how some of these apps manage to be a third of a GIGABYTE. A big house of cards with hidden bugs and buffer overflow potential everywhere.
 
 Regardless of password manager implementation, their response time to zero-day announcents or internal company data access policies, there is little to protect you if you leave your phone unlocked with your password manager open.
 
@@ -79,23 +79,24 @@ Turns out I don't actually care about more than 90% of my passwords. So I just s
 
 For the accounts that I do care about, for which there is no option to force non-weak(sms/email) 2-factor-authentication, I wanted a way to generate a longer password than the one saved in the password manager. 
 
-To do that, I supplement my sensitive passwords with [HalfKey](readme.md)
+To do that, I supplement my sensitive passwords with [HalfKey](readme.md)  
 
 it works like this:
+
+## 🧂🌶️ Salt & Pepper to spice up your password 🌶️🧂
 
 You memorize 2 passwords - your password manager password, and a "pepper" password.
 
 For each sensitive password, you save both the password and a "salt" in your password manager.
-```
-Salt & Pepper to spice up your password
 
-> Salt   -> Some random characters saved along with each password, and a number. for example: "twin.belong.hawk 8"
-> Pepper -> A secondary password that you memorize (The same pepper is used for all passwords)
-```
+__Salt__:  
+Some random characters saved along with each password, and a number. for example: "twin.belong.hawk 8"  
+__Pepper__:  
+A secondary password that you memorize (The same pepper is used for all passwords)  
 
-To reconstruct your password, you run HalfKey and enter your pepper password in HalfKey to derive generate a password modification.
+To reconstruct your password, you run HalfKey and enter your pepper password to generate a password modification.
 
-For example suppose you have the following account at MyBank, and you have memorized a pepper password `hello`
+For example, suppose you have the following account at MyBank, and you have memorized a pepper password `hello`
 
 ### Within your Password manager:  
 MyBank  
@@ -108,7 +109,7 @@ name: MyBank
 salt: twin.belong.hawk  
 size: 8  
 
-When you enter the pepper password in HalfKey, that outputs `8e01d42f`
+When you enter the pepper password in HalfKey, it outputs `8e01d42f`
 
 You use that to extend your password, for example just adding it to the end of your password, so your actual password becomes:
 `the.longer.the.password.the.better` `8e01d42f`
