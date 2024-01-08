@@ -67,13 +67,11 @@ Of the password managers that seem trustworthy to me, I ranked them in order of 
 * __Privacy__ - information collected about you, trackers, analytics, telemetry, application permissions, etc.
 * __App size__ - Without any 3D graphics or large assets that could take up a lot of space, I think app size can give us a rough indication of the number of dependendencies. A password manager is just a (very) fancy text editor. It seems wild to me how some of these apps manage to be a third of a GIGABYTE. A big house of cards with hidden bugs and buffer overflow potential everywhere.
 
-Regardless of password manager implementation, their response time to zero-day announcents or internal company data access policies, there is little to protect you if you leave your phone unlocked with your password manager open.
-
 ## Migrating whatever passwords
 
-Since passwords managers import/export to files that are not password protected, I decided to change all my passwords air-gapped one by one, and managed to delete about half of my accounts in the process.
+As password managers import/export files that are not password protected, I changed all my passwords one-by-one over an air-gap.
 
-Turns out I don't actually care about more than 90% of my passwords. So I just save those verbatim. If someone gets my "you have to register to keep using this website" account, I'll just create a new one.
+Turns out, I don't actually care about more than 90% of my passwords. So I just save those verbatim. If someone gets my "you have to register to keep using this website" account, I'll just create a new one.
 
 ## Conclusion - only partially migrating sensitive passwords with HalfKey
 
