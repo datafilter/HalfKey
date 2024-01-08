@@ -79,28 +79,33 @@ For the accounts that I do care about, for which there is no option to force non
 
 To do that, I supplement my sensitive passwords with [HalfKey](readme.md)  
 
-it works like this:
 
 ## 🧂🌶️ Salt & Pepper to spice up your password 🌶️🧂
 
-You memorize 2 passwords - your password manager password, and a "pepper" password.
-
-For each sensitive password, you save both the password and a "salt" in your password manager.
+HalfKey uses Salt & Pepper approach similar to how passwords are saved in databases
 
 __Salt__:  
-Some random characters saved along with each password, and a number. for example: "twin.belong.hawk 8"  
+Some random data saved along with each password  
 __Pepper__:  
-A secondary password that you memorize (The same pepper is used for all passwords)  
+A secondary password that you memorize (The same pepper is used for all passwords)
 
-To reconstruct your password, you run HalfKey and enter your pepper password to generate a password modification.
+You memorize 2 passwords - your password manager password, and a pepper password.
 
-For example, suppose you have the following account at MyBank, and you have memorized a pepper password `hello`
+For each sensitive password, you make up and save a unique salt for it.
+
+To reconstruct your password, you run HalfKey for a chosen salt and enter your pepper password to generate a password modification.
+
+Together with the password modification, you can get your actual password.
+
+## Example
+
+Suppose you have the following account at MyBank, and you have memorized a pepper password `hello`
 
 ### Within your Password manager:  
 MyBank  
 username: me@example.com  
 password: `the.longer.the.password.the.better`  
-notes: hk/twin.belong.hawk/8 <-- saved here in password manager, but could be somewhere else you consider safe.
+notes: hk/twin.belong.hawk/8 <-- salt saved somewhere you consider safe, like a note in your password manager.
 
 ### Within HalfKey:  
 name: MyBank  
@@ -112,4 +117,4 @@ When you enter the pepper password in HalfKey, it outputs `8e01d42f`
 You use that to extend your password, for example just adding it to the end of your password, so your actual password becomes:
 `the.longer.the.password.the.better` `8e01d42f`
 
-This way, your sensitive passwords are never fully saved anywhere, and even without the internet, you can still reconstruct your passwords since the algorithm is relatively easy to memorize and execute on any machine without installing anything.
+This way, your sensitive passwords are never fully saved anywhere.
