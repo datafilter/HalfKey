@@ -1,39 +1,3 @@
-/* Orange Dark scheme (Forced) */
-/* Enabled if forced with data-theme="dark" */
-/* [data-theme="dark"] {
-    --primary: #fb8a00e6;
-    --primary-hover: #ebc284eb;
-    --primary-focus: rgba(251, 140, 0, 0.25);
-    --primary-inverse: #FFF;
-  } */
-
-/* Orange (Common styles) */
-/* :root {
-    --form-element-active-border-color: var(--primary);
-    --form-element-focus-color: var(--primary-focus);
-    --switch-color: var(--primary-inverse);
-    --switch-checked-background-color: var(--primary);
-  } */
-/*   
-article button {
-  display: inline;
-  width: 120px;
-}
-
-.parent {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-} */
-
-/* [x-hidden=true]{
-  display: none;
-} */
-
-
-
 /* Click on key run button */
 #run {
   /* background-color: brown; */
@@ -48,14 +12,7 @@ article button {
   font-family: monospace;
 }
 
-/* idea fade in/out of dialog */
-/* #editDialog {
-  transition: all 12s ease-out;
-} */
-
-
 /* Click on key edit button */
-
 dialog[open] {
   animation: myFadeIn 0.4s ease normal;
 }
@@ -68,9 +25,6 @@ dialog[open] {
     opacity: 1;
   }
 }
-/* dialog::backdrop {
-  background-color: rgba(0,0,255, 0.2);
-} */
 dialog[open]::backdrop {
   /* animation: myFadeIn 8.4s ease normal; */
   background-image: linear-gradient(
@@ -80,7 +34,5 @@ dialog[open]::backdrop {
     dodgerblue,
     green
   );
-  /* opacity: 0.75; */
   opacity: 0.3;
-  /* opacity: 1; */
 }
