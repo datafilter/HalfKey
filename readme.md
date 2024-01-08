@@ -24,13 +24,15 @@ It only runs on your device, doesn't do any network calls, and doesn't read from
 
 Because persistent storage on a PWA is not guaranteed, data you save on a PWA could be deleted by your browser/device - so always backup your Half Key data somewhere, for example, along with your passwords in your password manager.
 
-## [Proof of concept hosted here](https://halfkey.datafilter.app/variants/02401_offline_takeLastN/)
+## Proof of concept --> [halfkey.datafilter.app](https://halfkey.datafilter.app/)
 
 The PWA is functional and can be used as-is, but doesn't yet guide the user (TBD)
 * Add in-app instructions/explainers
 https://github.com/datafilter/HalfKey/issues/4
 * Prevent the UI from accepting unexpected inputs
 https://github.com/datafilter/HalfKey/issues/3
+* Improve UI for bigger non-mobile displays
+https://github.com/datafilter/HalfKey/issues/6
 
 # Goals
 
