@@ -59,7 +59,7 @@ There are several sources of information on password managers, with varying usef
 - Audits and reports
 - Source code
 
-While most password managers have a solid approach to zero-knowledge secure encrypted data storage, there are some differences in the algorithms used. Some follow OWASP guidelines religiously and others deviate from it where they understand the topic in depth. For example, understanding that password length is more important PBKDF iterations by doing the math.
+While most password managers have a solid approach to zero-knowledge secure encrypted data storage, there are some differences in the algorithms used. Some follow OWASP guidelines religiously and others deviate from it where they understand the topic in depth. For example, understanding that password length is more important than PBKDF iterations by doing the math.
 
 The audits I read didn't have any issue with the security architectures in general. The various algorithms used have all been proven to be resistant to brute-force attacks and won security competitions. However, some workarounds to access password manager data without the master password are surprisingly trivial! Fortunately _most_ workarounds require root access (ie malware). It is one thing to design a secure system, but it is quite something else to ensure that there are no vulnerabilities when it is put into action.
 
