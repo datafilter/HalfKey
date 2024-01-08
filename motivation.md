@@ -79,7 +79,6 @@ For the accounts that I do care about, for which there is no option to force non
 
 To do that, I supplement my sensitive passwords with [HalfKey](readme.md)  
 
-
 ## 🧂🌶️ Salt & Pepper to spice up your password 🌶️🧂
 
 HalfKey uses Salt & Pepper approach similar to how passwords are saved in databases
