@@ -14,14 +14,19 @@
         {
             "src": "../../assets/icons/512.png",
             "type": "image/png",
-            "sizes": "512x512"
+            "sizes": "512x512",
+            "purpose": "any maskable"
         },
         {
             "src": "../../assets/icons/1024.png",
             "type": "image/png",
-            "sizes": "1024x1024"
+            "sizes": "1024x1024",
+            "purpose": "any maskable"
         }
     ],
     "start_url": ".",
-    "scope": "."
+    "scope": ".",
+    "display": "standalone",
+    "background_color": "#11191f",
+    "theme_color": "#3e8fe0"
 }
