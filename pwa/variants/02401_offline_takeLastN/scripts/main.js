@@ -85,6 +85,7 @@ const configureDeleteDialog = (deleteDialog, editDialog) => {
 }
 
 const configureEditDialog = (editDialog) => {
+
     const editDeleteBtn = editDialog.querySelector("#edit-delete")
     const editSaveBtn = editDialog.querySelector("#edit-save")
 
@@ -97,18 +98,64 @@ const configureEditDialog = (editDialog) => {
         editDialog.close(dgSAVE)
     })
 
-    editDialog.addEventListener("close", (e) => {
-        // action save/delete (dgDELETE, dgSAVE)
-        // console.log(`dialog requests action ${editDialog.returnValue}`)
-        // console.log(`                on key ${JSON.stringify(editDialog.halfKey)}`)
-    });
-
     // Close by clicking outside of dialog card
     editDialog.addEventListener("click", (event) => {
         if (event.target.id == editDialog.id) {
+            // Remove "saved" return value from edit key to prevent addKeyCard call
+            editDialog.returnValue = ""
             editDialog.close();
         }
     })
+
+    // validate Name, Salt & Output    
+    const nameInput = editDialog.querySelector('#set-name')
+    const saltInput = editDialog.querySelector('#set-salt')
+    const sizeInput = editDialog.querySelector('#set-size')
+
+    const validateName = () => nameInput.value.length > 0
+    const validateSaltNonEmpty = () => saltInput.value.length > 0
+    const validateSaltUnique = () => {
+        const halfKeyIds = Object.keys(localStorage).filter(k => k.startsWith('HK-'))
+        const halfKeys = halfKeyIds.map(id => localStorage.getItem(id)).map(JSON.parse)
+
+        const otherHalfKeys = halfKeys.filter(hk => hk.id != editDialog.halfKey.id)
+        const otherSalts = otherHalfKeys.map(hk => hk.salt)
+        
+        return !otherSalts.some(s => s == saltInput.value)
+    }
+    const validateSize = () => {
+        const n = Number.parseInt(sizeInput.value)
+        const validSize = n > 0 && n <= 32
+        return validSize
+    }
+
+    const toggleSaveButton = () => {
+        editSaveBtn.disabled = !(validateName() &&
+            validateSaltNonEmpty() &&
+            validateSaltUnique() &&
+            validateSize())
+    }
+
+    nameInput.addEventListener('keyup', () => {
+        nameInput.setAttribute('aria-invalid', String(!validateName()))
+        toggleSaveButton()
+    })
+    saltInput.addEventListener('keyup', () => {
+        saltInput.setAttribute('aria-invalid', String(!(validateSaltNonEmpty() && validateSaltUnique())))
+        toggleSaveButton()
+    })
+    sizeInput.addEventListener('keyup', () => {
+        sizeInput.setAttribute('aria-invalid', String(!validateSize()))
+        toggleSaveButton()
+    })
+    
+    // reset UI validations for new/edit
+    editDialog.addEventListener("close", () => {
+        nameInput.removeAttribute('aria-invalid')
+        saltInput.removeAttribute('aria-invalid')
+        sizeInput.removeAttribute('aria-invalid')
+        editSaveBtn.disabled = true
+    });
 }
 
 const animateRunButton = (runBtn) => {
@@ -126,7 +173,7 @@ const animateRunButton = (runBtn) => {
 const configurePepperDialog = (pepperDialog) => {
 
     const pepperInput = pepperDialog.querySelector('#set-pepper')
-    
+
     const confirmBtn = pepperDialog.querySelector("#confirmPepper")
 
     const purgeSecrets = (pepperInput, article) => {

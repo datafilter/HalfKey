@@ -34,19 +34,22 @@
             <article>
                 <h3>Edit</h3>
                 <label>
-                    Display Name
-                    <input id="set-name" name="DisplayName" placeholder="Account Xyz" aria-label="Display Name">
+                    Name
+                    <input id="set-name" name="Name" placeholder="Account Xyz" aria-label="Name">
+                    <span>Name is required</span>
                 </label>
                 <label>
                     Salt
-                    <input id="set-salt" name="Salt" placeholder="Random Word(s)" aria-label="Salt">
+                    <input id="set-salt" name="Salt" placeholder="Unique random text" aria-label="Salt">
+                    <span>Unique salt is required</span>
                 </label>
                 <label>
-                    Output Size
-                    <input id="set-size" name="OutputSize" placeholder="4" aria-label="Output Size">
+                    Size
+                    <input id="set-size" name="Size" placeholder="4" aria-label="Size">
+                    <span>Size should be a whole number, less than 33 and greater than 0</span>
                 </label>
                 <button id="edit-delete" class="outline">Delete</button>
-                <button id="edit-save" autofocus>Save</button>
+                <button id="edit-save" disabled>Save</button>
             </article>
         </dialog>
 

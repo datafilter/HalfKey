@@ -17,22 +17,44 @@ dialog[open] {
   animation: myFadeIn 0.4s ease normal;
 }
 
-@keyframes myFadeIn{
+@keyframes myFadeIn {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
+
 dialog[open]::backdrop {
   /* animation: myFadeIn 8.4s ease normal; */
-  background-image: linear-gradient(
-    45deg,
-    magenta,
-    rebeccapurple,
-    dodgerblue,
-    green
-  );
+  background-image: linear-gradient(45deg,
+      magenta,
+      rebeccapurple,
+      dodgerblue,
+      green);
   opacity: 0.3;
+}
+
+/* invalid input */
+article label {
+  /* make space for error message */
+  margin-bottom: 1rem;
+}
+
+input + span {
+  visibility: hidden;
+  font-weight: bold;
+  float: right;
+}
+input[aria-invalid=true] + span {
+  visibility: visible;
+  animation: shake 0.3s ease normal;
+}
+
+@keyframes shake {
+  0% { transform: translate(4px, 0); }
+  50% { transform: translate(-3px, 0); }
+  100% { transform: translate(2px, 0); }
 }
