@@ -4,7 +4,9 @@
 
 Any suggestions and discussions are more than welcome! The more eyeballs the merrier.
 
-I'd like people (including myself) to rely on this for a lifetime, and therefore prefer accretion-only changes. In other words, no edits as far as possible and only add new files. Any significant changes are preferably made to seperate variants of the PWA, eg using a different algorithm or new version of a framework.
+I'd like people (including myself) to rely on this for a lifetime, and therefore prefer accretion-only changes. In other words, no edits as far as possible and only add new files.
+
+Preferably changes are in new implementations so that users don't experience the app constantly changing out under them. Any significant changes(like using different algorithm or framework) are to be made to [seperate variants of the PWA](/pwa/variants/) with the intent that when one is completed, it doesn't change except for security updates. 
 
 There is a lot that can be done to improve the css and usability of the PWA. I'd welcome any PR's that add content in a new directory in 
 ```
@@ -38,11 +40,11 @@ It would help if these are also phrased in terms of Alice and Bob, explaining ho
 
 Questions, comments? I'd appreciate any feedback. Please open an issue and we can discuss & document it.
 
-## Financial support
+## Support
 
-Any sponsorship would be greatly appreciated to help pay for alternative additional infrastructure to host the app, and to enable me to do related projects in the future. That would be amazing - thank you if you do!
+Any support would be greatly appreciated. If there is enough interest, I'd like to make an additional online version of the PWA aswell that can save halfkeys for free, an open source server which users can also self-host if they like, and if possible also host it and make it free to use.
 
-Alternatively, contributions to these great organizations that help to secure our digital world would be great too. I'm not affiliated, I just think they are super:
+Contributions to these great organizations that help to secure our digital world would be great too. I'm not affiliated, I just think they are super:
 
 [OpenSSL](https://github.com/sponsors/openssl)
 
