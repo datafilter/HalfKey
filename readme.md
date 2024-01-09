@@ -18,9 +18,9 @@ I may have found a simpler solution to this already, but I'm still thinking it o
 
 ## Proof of concept --> [halfkey.datafilter.app](https://halfkey.datafilter.app/)
 
-Take NOTE:
+NOTE:
 Persistent storage on a PWA is not guaranteed, data you save on a PWA could be deleted by your browser/device.
-Backup your Half Key data somewhere, for example, along with your passwords in your password manager.
+Backup your HalfKey data somewhere, for example, along with your passwords in your password manager.
 
 The PWA is functional and can be used as-is, but doesn't yet guide the user (TBD)
 * Add in-app instructions/explainers
