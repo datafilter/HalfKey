@@ -16,23 +16,21 @@ I may have found a simpler solution to this already, but I'm still thinking it o
 
 # Web app
 
-There are multiple [implementations of the app](/pwa/variants/) to choose from, with the intent that when one is completed, it doesn't change except for security updates. Preferably changes are in new implementations so that users don't experience the app constantly changing out under them.
-
-The PWA variant [02401_offline_takeLastN](/pwa/variants/02401_offline_takeLastN/) is written in vanilla js/css without libraries, no build steps, no frameworks. Wysiwyg - less things to review.
-
-It only runs on your device, doesn't do any network calls, and doesn't read from the clipboard.
-
-Because persistent storage on a PWA is not guaranteed, data you save on a PWA could be deleted by your browser/device - so always backup your Half Key data somewhere, for example, along with your passwords in your password manager.
-
 ## Proof of concept --> [halfkey.datafilter.app](https://halfkey.datafilter.app/)
+
+Take NOTE:
+Persistent storage on a PWA is not guaranteed, data you save on a PWA could be deleted by your browser/device.
+Backup your Half Key data somewhere, for example, along with your passwords in your password manager.
 
 The PWA is functional and can be used as-is, but doesn't yet guide the user (TBD)
 * Add in-app instructions/explainers
 https://github.com/datafilter/HalfKey/issues/4
-* Prevent the UI from accepting unexpected inputs
-https://github.com/datafilter/HalfKey/issues/3
 * Improve UI for bigger non-mobile displays
 https://github.com/datafilter/HalfKey/issues/6
+
+The PWA is written in vanilla js/css without libraries, no build steps, no frameworks. WYSIWYG - less things to review.
+
+It only runs on your device, doesn't do any network calls, and doesn't read from the clipboard.
 
 # Goals
 
