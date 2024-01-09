@@ -4,7 +4,7 @@
 
 Any suggestions and discussions are more than welcome! The more eyeballs the merrier.
 
-I'd like people (including myself) to rely on this for a lifetime, and therefore prefer accretion-only changes. In other words, no edits as far as possible and only add new files.
+I'd like to rely on this for a lifetime, and therefore prefer accretion-only changes. In other words, no edits as far as possible and only add new files.
 
 Preferably changes are in new implementations so that users don't experience the app constantly changing out under them. Any significant changes(like using different algorithm or framework) are to be made to [seperate variants of the PWA](/pwa/variants/) with the intent that when one is completed, it doesn't change except for security updates. 
 
