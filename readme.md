@@ -56,28 +56,20 @@ This is what is only memorized, not written down anywhere:
 Pepper: PaintbrushAdvisor
 ```
 
-To get the actual password, do the following:
+Code that runs on most operating systems:
+```sh
+salt="Detective"
+pepper="PaintbrushAdvisor"
+saltHash=$(printf "$salt" | openssl dgst -sha256)
+pepperHash=$(printf "$pepper" | openssl dgst -sha256)
+hashHash=$(printf "$saltHash$pepperHash" | openssl dgst -sha256)
+subset=$(printf "$hashHash" | head -c 8)
 
-* Compute the hash of a memorized secret (Pepper)
-* Compute the hash of the Salt, without the number
-* Compute the hash of the hashes, so that both the Salt and Pepper contribute equally to output
-* Then use the number of the half-key to get a subset of the last hash and add it to the original password get the final password
+printf "modifier: $subset"
 
-Pseudocode
+password="TheToothFairyTakesThe109BusOnTuesdays"
+printf "final password: $password$subset"
 ```
-s = hash(Detective) = 2653CEEEC1FD951707A31D9E357218EA41A511DB896747A7A41BB6528D927B09
-p = hash(PaintbrushAdvisor) = 155794176D7A7E0F924683FF5A6CFA5E94EF157FD5146305A9D19CE27B4A230D
-h = hash(a + b)
-  = hash (265...B09155...30D)
-  = B58D8541047464CB311EFE863DA80883FA79EF2C153FDC0A8A6EC7A407128F26
-n = 8
-o = c[0..8]
-  = B58D8541
-f = TheToothFairyTakesThe109BusOnTuesdays + o
-  = TheToothFairyTakesThe109BusOnTuesdaysB58D8541
-```
-
-The chosen hash function is Sha2-256 because it's widely used and avaliable.
 
 Code that runs on any browser:
 
@@ -97,14 +89,28 @@ const hashHash = await digestMessage(saltHash + pepperHash)
 const finalPassword = "TheToothFairyTakesThe109BusOnTuesdays" + hashHash.substring(0,8)
 ```
 
-Code that runs on most operating systems:
-```sh
-todo add openssl example
+In words:
+
+* Compute the hash of a memorized secret (Pepper)
+* Compute the hash of the Salt, without the number
+* Compute the hash of the hashes, so that both the Salt and Pepper contribute equally to output
+* Then use the number of the half-key to get a subset of the last hash and add it to the original password get the final password
+
+The chosen hash function is Sha2-256 because it's widely used and avaliable.
+
+Pseudocode
 ```
-
-On IOS you can create shortcut natively without installing anything:
-
-> Todo add screenshot of shortcut-app
+s = hash(Detective) = 2653CEEEC1FD951707A31D9E357218EA41A511DB896747A7A41BB6528D927B09
+p = hash(PaintbrushAdvisor) = 155794176D7A7E0F924683FF5A6CFA5E94EF157FD5146305A9D19CE27B4A230D
+h = hash(a + b)
+  = hash (265...B09155...30D)
+  = B58D8541047464CB311EFE863DA80883FA79EF2C153FDC0A8A6EC7A407128F26
+n = 8
+o = c[0..8]
+  = B58D8541
+f = TheToothFairyTakesThe109BusOnTuesdays + o
+  = TheToothFairyTakesThe109BusOnTuesdaysB58D8541
+```
 
 # Basis of the algorithm
 
