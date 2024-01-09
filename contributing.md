@@ -42,7 +42,7 @@ Questions, comments? I'd appreciate any feedback. Please open an issue and we ca
 
 ## Support
 
-Any support would be greatly appreciated. If there is enough interest, I'd like to make an additional online version of the PWA that can backup halfkeys online, an open source server which users can also self-host if they like, and if possible also host it and make it free to use.
+Any support would be greatly appreciated. If there is enough interest, I'd like to make an additional online version of the PWA that can backup halfkeys online, write an open source server which users can also self-host if they like, and also host it to use for free.
 
 Contributions to these great organizations that help to secure our digital world would be great too. I'm not affiliated, I just think they are super:
 
