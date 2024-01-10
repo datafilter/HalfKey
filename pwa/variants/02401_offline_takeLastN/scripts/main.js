@@ -136,15 +136,15 @@ const configureEditDialog = (editDialog) => {
             validateSize())
     }
 
-    nameInput.addEventListener('keyup', () => {
+    nameInput.addEventListener('input', () => {
         nameInput.setAttribute('aria-invalid', String(!validateName()))
         toggleSaveButton()
     })
-    saltInput.addEventListener('keyup', () => {
+    saltInput.addEventListener('input', () => {
         saltInput.setAttribute('aria-invalid', String(!(validateSaltNonEmpty() && validateSaltUnique())))
         toggleSaveButton()
     })
-    sizeInput.addEventListener('keyup', () => {
+    sizeInput.addEventListener('input', () => {
         sizeInput.setAttribute('aria-invalid', String(!validateSize()))
         toggleSaveButton()
     })
@@ -199,7 +199,7 @@ const configurePepperDialog = (pepperDialog) => {
 
     const ENTER_keycode = 13
 
-    pepperInput.addEventListener("keyup", async (event) => {
+    pepperInput.addEventListener("input", async (event) => {
 
         confirmBtn.disabled = !(pepperInput.value.length > 0)
 
