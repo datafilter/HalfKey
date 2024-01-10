@@ -120,7 +120,7 @@ const configureEditDialog = (editDialog) => {
 
         const otherHalfKeys = halfKeys.filter(hk => hk.id != editDialog.halfKey.id)
         const otherSalts = otherHalfKeys.map(hk => hk.salt)
-        
+
         return !otherSalts.some(s => s == saltInput.value)
     }
     const validateSize = () => {
@@ -148,7 +148,7 @@ const configureEditDialog = (editDialog) => {
         sizeInput.setAttribute('aria-invalid', String(!validateSize()))
         toggleSaveButton()
     })
-    
+
     // reset UI validations for new/edit
     editDialog.addEventListener("close", () => {
         nameInput.removeAttribute('aria-invalid')
@@ -181,8 +181,13 @@ const configurePepperDialog = (pepperDialog) => {
         delete article.dataset.calculated
     }
 
+    const resetPepperDialog = (pepperInput, article) => {
+        purgeSecrets(pepperInput, article)
+        confirmBtn.disabled = true;
+    }
+
     pepperDialog.addEventListener("close", () => {
-        purgeSecrets(pepperInput, pepperDialog.article)
+        resetPepperDialog(pepperInput, pepperDialog.article)
     })
 
     // Close by clicking outside of dialog card
@@ -195,6 +200,8 @@ const configurePepperDialog = (pepperDialog) => {
     const ENTER_keycode = 13
 
     pepperInput.addEventListener("keyup", async (event) => {
+
+        confirmBtn.disabled = !(pepperInput.value.length > 0)
 
         if (event.keyCode == ENTER_keycode) {
             confirmBtn.click()
