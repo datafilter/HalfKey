@@ -19,7 +19,7 @@ I may have found a simpler solution to this already, but I'm still thinking it o
 Stable version, updated as needed:  
 [halfkey.datafilter.app](https://halfkey.datafilter.app)  
 
-Automated release on repository changes:  
+Automated release on any changes:  
 [datafilter.github.io/HalfKey](https://datafilter.github.io/HalfKey)
 
 NOTE:
