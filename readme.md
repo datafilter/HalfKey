@@ -16,7 +16,11 @@ I may have found a simpler solution to this already, but I'm still thinking it o
 
 # Web app
 
-## Proof of concept --> [halfkey.datafilter.app](https://halfkey.datafilter.app/)
+Stable version, updated as needed:  
+[halfkey.datafilter.app](https://halfkey.datafilter.app)  
+
+Automated release on repository changes:  
+[datafilter.github.io/HalfKey](https://datafilter.github.io/HalfKey)
 
 NOTE:
 Persistent storage on a PWA is not guaranteed, data you save on a PWA could be deleted by your browser/device.
@@ -138,7 +142,3 @@ which would require a solid understanding of KDF
 # Vue, Angular, React, Elm, Not-a-framework?
 
 Contributions using different approaches are welcome, see [contributing](contributing.md)
-
-# Planned redundancy
-PWA also hosted on a non-Microsoft(Github) server   
-Source code on both GitHub and GitLab
