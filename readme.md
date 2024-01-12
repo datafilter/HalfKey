@@ -111,14 +111,14 @@ Half Key is the same thing, to combine a known part, Salt, and a number(N) with 
 The steps are as follows:
 
 Given 
-For all accounts
-P - a memorized secret (Secret Salt aka Pepper)
-For each account in the password manager
-W - the saved password, NOT used in HalfKey
-S - a second password (Salt)
-N - an output length of the algorithm
-O - the output of the algorithm
-H - a secure hash function
+For all accounts  
+P - a memorized secret (Secret Salt aka Pepper)  
+For each account in the password manager  
+W - the saved password, NOT used in HalfKey  
+S - a second password (Salt)  
+N - an output length of the algorithm  
+O - the output of the algorithm  
+H - a secure hash function  
 
 The chosen hash function is Sha2-256 because it's widely used and avaliable.
 
