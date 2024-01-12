@@ -1,12 +1,9 @@
 /* Click on key run button */
 #run {
-  /* background-color: brown; */
-  /* transition: all 2s ease-in-out; */
   transition: all 1s ease-out;
 }
 
 #run.contrast {
-  /* color:green; */
   background-color: lightcyan;
   font-size: large;
   font-family: monospace;
@@ -28,7 +25,6 @@ dialog[open] {
 }
 
 dialog[open]::backdrop {
-  /* animation: myFadeIn 8.4s ease normal; */
   background-image: linear-gradient(45deg,
       magenta,
       rebeccapurple,
@@ -43,18 +39,54 @@ article label {
   margin-bottom: 1rem;
 }
 
-input + span {
+input+span {
   visibility: hidden;
   font-weight: bold;
   float: right;
 }
-input[aria-invalid=true] + span {
+
+input[aria-invalid=true]+span {
   visibility: visible;
   animation: shake 0.3s ease normal;
 }
 
 @keyframes shake {
-  0% { transform: translate(4px, 0); }
-  50% { transform: translate(-3px, 0); }
-  100% { transform: translate(2px, 0); }
+  0% {
+    transform: translate(4px, 0);
+  }
+
+  50% {
+    transform: translate(-3px, 0);
+  }
+
+  100% {
+    transform: translate(2px, 0);
+  }
+}
+
+/* large displays */
+@media (min-width: 576px) {
+
+  .container {
+    max-width: 100%;
+  }
+
+  #new-key {
+    margin: auto;
+  }
+
+  #keys-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  button {
+    max-width: 400px;
+  }
+
+  article {
+    margin: var(--block-spacing-vertical) auto;
+    width: 400px;
+  }
+
 }

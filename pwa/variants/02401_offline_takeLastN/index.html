@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HalfKey variant that takes the last N characters of the final hash">
-    <meta name="theme-color" content="#3e8fe0"/>
+    <meta name="theme-color" content="#3e8fe0">
     <link rel="stylesheet" href="css/pico.min.css">
     <link rel="stylesheet" href="css/pico.override.css">
     <link rel="manifest" href="manifest.json">
@@ -17,6 +17,10 @@
 <body>
     <main class="container">
         <h1 style="text-align:center">Half Key</h1>
+        <button id="new-key">Add new key</button>
+
+        <div id="keys-container">
+        </div>
 
         <template id="key-template">
             <article id="articledata">
@@ -25,10 +29,6 @@
                 <button id="run">Run</button>
             </article>
         </template>
-
-        <div id="keys-container">
-            <button id="new-key">Add new key</button>
-        </div>
 
         <dialog id="editDialog">
             <article>
