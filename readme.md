@@ -10,11 +10,11 @@ I don't want to save my most sensitive passwords exactly.
 
 I want something like a hardware authentication device, but that isn't a physical thing you can lose. Something like 2-factor authentication, for important accounts that don't support any/strong 2FA.
 
-I know its generally a bad idea to roll-your-own security algorithms/procedures. Maybe there is a recommended approach to get around this problem that I'm not aware of, and someone will recommend that here!
-
-I may have found a simpler solution to this already, but I'm still thinking it over. I'm sharing/doing this project to have something specific I find useful to implement in multiple different ways.
+It's usually a bad idea to roll-your-own security algorithms/procedures. Maybe there is a recommended approach to get around this problem that I'm not aware of, and someone will share it! If I find a standard or simpler solution than the approach described here, I'll add a description & reference to it here.
 
 # Web app
+
+How to use the PWA is [explained here](usage.md)
 
 Stable version, updated as needed:  
 [halfkey.datafilter.app](https://halfkey.datafilter.app)  
@@ -22,19 +22,12 @@ Stable version, updated as needed:
 Automated release on any changes:  
 [datafilter.github.io/HalfKey](https://datafilter.github.io/HalfKey)
 
-NOTE:
-Persistent storage on a PWA is not guaranteed, data you save on a PWA could be deleted by your browser/device.
-Backup your HalfKey data somewhere, for example, along with your passwords in your password manager.
+It only runs on your device, doesn't do any network calls, and doesn't read from the clipboard.
 
-The PWA is functional and can be used as-is, but doesn't yet guide the user (TBD)
-* Add in-app instructions/explainers
-https://github.com/datafilter/HalfKey/issues/4
-* Improve UI for bigger non-mobile displays
-https://github.com/datafilter/HalfKey/issues/6
+__NOTE__:  
+Persistent storage on a PWA is not guaranteed and in the hands of the browser/device. Also, you could lose/break your device. As nothing is uploaded anywhere, __backup your own data__ i.e. save Halfkey data along with your passwords in your password manager.
 
 The PWA is written in vanilla js/css without libraries, no build steps, no frameworks. WYSIWYG - less things to review.
-
-It only runs on your device, doesn't do any network calls, and doesn't read from the clipboard.
 
 # Goals
 
@@ -46,7 +39,7 @@ It only runs on your device, doesn't do any network calls, and doesn't read from
 # Non-goals
 
 * To be used instead of a [good password](https://diceware.dmuth.org/?debug=7)
-* To be used instead of or replace a KDF, eg. PBKDF or Argon2id
+* To be used instead of or replace a [KDF](https://en.wikipedia.org/wiki/Key_derivation_function), eg. PBKDF or Argon2id
 
 # Algorithm
 
@@ -61,6 +54,7 @@ Pepper: PaintbrushAdvisor
 ```
 
 Code that runs on most operating systems:
+### Shell
 ```sh
 salt="Detective"
 pepper="PaintbrushAdvisor"
@@ -76,7 +70,7 @@ printf "final password: $password$subset"
 ```
 
 Code that runs on any browser:
-
+### JS
 ```javascript
 async function digestMessage(message) {
   const msgUint8 = new TextEncoder().encode(message);                             
@@ -92,17 +86,7 @@ const pepperHash = await digestMessage(pepper)
 const hashHash = await digestMessage(saltHash + pepperHash)
 const finalPassword = "TheToothFairyTakesThe109BusOnTuesdays" + hashHash.substring(0,8)
 ```
-
-In words:
-
-* Compute the hash of a memorized secret (Pepper)
-* Compute the hash of the Salt, without the number
-* Compute the hash of the hashes, so that both the Salt and Pepper contribute equally to output
-* Then use the number of the half-key to get a subset of the last hash and add it to the original password get the final password
-
-The chosen hash function is Sha2-256 because it's widely used and avaliable.
-
-Pseudocode
+### Pseudocode
 ```
 s = hash(Detective) = 2653CEEEC1FD951707A31D9E357218EA41A511DB896747A7A41BB6528D927B09
 p = hash(PaintbrushAdvisor) = 155794176D7A7E0F924683FF5A6CFA5E94EF157FD5146305A9D19CE27B4A230D
@@ -124,20 +108,44 @@ Salt combined with password is hashed together, so that the password is not easy
 
 Half Key is the same thing, to combine a known part, Salt, and a number(N) with an unknown part - a secret Salt, aka [Pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography))(P)
 
-Half Key is intentionally separate from the saved password so that:
+The steps are as follows:
+
+Given 
+For all accounts
+P - a memorized secret (Secret Salt aka Pepper)
+For each account in the password manager
+W - the saved password, NOT used in HalfKey
+S - a second password (Salt)
+N - an output length of the algorithm
+O - the output of the algorithm
+H - a secure hash function
+
+The chosen hash function is Sha2-256 because it's widely used and avaliable.
+
+Steps:
+* Compute the hash of the Pepper
+* Compute the hash of the Salt
+* Compute the hash of the hashes, so that both the Salt and Pepper contribute equally to output
+* Then use the number N to get a subset of the previous output (O).
+* Combine it with the original password get the final password.
+* How the subset is chosen and combined with W is left up to the user/implementation.
+
+In the case of [02401_offline_takeLastN](pwa/variants/02401_offline_takeLastN)
+* The subset is the last N characters of O
+* The combination with W is done by appending the subset
+
+Eg.  
+Given a saved password (W)  
+Half Key output (O) = Subset(N, hash(hash(S) + hash(P)))  
+Actual Password = W + O
+
+The above algorithm is used instead of something like: 
+`Actual Password = HK(W, N, S, P)`  
+This intentionally avoids using the saved password(W) as input so that:
 * The saved password remains unknown to external applications
 * It is still up to the user to pick a good password to begin with
 * Even if it doesn't add any extra security, at least it doesn't take away any security. Which is similar to just appending the phrase "WithPeanutButter" to the end of saved passwords.
 
-Eg.  
-Saved Password(W)  
-Half Key output (O) = Subset(N, hash(hash(S) + hash(P)))  
-Actual Password = W + O
-
-instead of
-
-Actual Password = HK(W, N, S, P)  
-which would require a solid understanding of KDF
 
 # Vue, Angular, React, Elm, Not-a-framework?
 
