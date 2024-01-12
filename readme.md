@@ -106,41 +106,36 @@ A common practice to save passwords in a database is to use a [Salt](https://en.
 
 Salt combined with password is hashed together, so that the password is not easy to guess.
 
-Half Key is the same thing, to combine a known part, Salt, and a number(N) with an unknown part - a secret Salt, aka [Pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography))(P)
+Half Key is the same thing, to combine a known part, Salt(S), and a number(N) with an unknown part - a secret Salt, aka [Pepper](https://en.wikipedia.org/wiki/Pepper_(cryptography))(P) - the output of which is combined with the password saved in the password manager(W)
 
-The steps are as follows:
+For all accounts, the same Pepper is used.  
+For each account 3 things are saved:  
+* A unique saved password(W)
+* A unique Salt
+* An output length of N, not-strictly unique
 
-Given 
-For all accounts  
-P - a memorized secret (Secret Salt aka Pepper)  
-For each account in the password manager  
-W - the saved password, NOT used in HalfKey  
-S - a second password (Salt)  
-N - an output length of the algorithm  
-O - the output of the algorithm  
-H - a secure hash function  
-
-The chosen hash function is Sha2-256 because it's widely used and avaliable.
+The secure hash function used is Sha2-256 because it's widely used and avaliable.
 
 Steps:
 * Compute the hash of the Pepper
 * Compute the hash of the Salt
 * Compute the hash of the hashes, so that both the Salt and Pepper contribute equally to output
-* Then use the number N to get a subset of the previous output (O).
+* Then use the number N to get a subset of the previous output.
 * Combine it with the original password get the final password.
 * How the subset is chosen and combined with W is left up to the user/implementation.
 
 In the case of [02401_offline_takeLastN](pwa/variants/02401_offline_takeLastN)
-* The subset is the last N characters of O
+* The subset is the last N characters of the last hash
 * The combination with W is done by appending the subset
 
 Eg.  
-Given a saved password (W)  
-Half Key output (O) = Subset(N, hash(hash(S) + hash(P)))  
-Actual Password = W + O
+`Saved password (W)`  
+`HalfKey output (O) = Subset(N, hash(hash(S) + hash(P)))`  
+`Actual Password = W + O`
 
-The above algorithm is used instead of something like: 
-`Actual Password = HK(W, N, S, P)`  
+The above algorithm is used instead of something like:  
+`Actual Password = HK(W, N, S, P)`
+
 This intentionally avoids using the saved password(W) as input so that:
 * The saved password remains unknown to external applications
 * It is still up to the user to pick a good password to begin with
