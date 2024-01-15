@@ -17,6 +17,24 @@
 <body>
     <main class="container">
         <h1 style="text-align:center">Half Key</h1>
+        <details>
+            <summary style="text-align:center">Salt & Pepper to spice up your password</summary>
+            <ul>
+                <li>NOTE: Backup your HalfKey data somewhere else. The data on this app could be deleted by your device
+                    and/or browser.</li>
+                <li>This specific variant of the app takes the <strong>last</strong> N values of the final hash, and
+                    copies
+                    that to the clipboard.</li>
+            </ul>
+            <p>
+                How to use the app is explained in the <a
+                    href="https://github.com/datafilter/HalfKey/blob/main/usage.md#example">usage doc.</a>
+            </p>
+            <p>
+                The <a href="https://github.com/datafilter/HalfKey/blob/main/readme.md#algorithm">readme of the
+                    source code</a> explains how the algorithm calculates its output.
+            </p>
+        </details>
         <button id="new-key">Add new key</button>
 
         <div id="keys-container">

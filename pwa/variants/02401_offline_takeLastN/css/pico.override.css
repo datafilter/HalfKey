@@ -89,4 +89,15 @@ input[aria-invalid=true]+span {
     width: 400px;
   }
 
+  /* top info section */
+  details {
+    margin: calc(var(--typography-spacing-vertical) * -1.1) auto 1em;
+    width: 400px
+  }
+
 }
+
+/* css debug */
+/* * {
+  border: 1px solid red;
+} */
