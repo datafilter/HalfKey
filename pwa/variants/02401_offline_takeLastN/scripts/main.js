@@ -126,7 +126,8 @@ const configureEditDialog = (editDialog) => {
     const validateSize = () => {
         const n = Number.parseInt(sizeInput.value)
         const validSize = n > 0 && n <= 32
-        return validSize
+        const parsedEqualsInput = String(n) === sizeInput.value
+        return validSize && parsedEqualsInput
     }
 
     const toggleSaveButton = () => {
