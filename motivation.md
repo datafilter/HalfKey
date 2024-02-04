@@ -51,7 +51,7 @@ As password managers import/export files that are not password protected, I chan
 
 Turns out, I don't actually care about more than 90% of my passwords. So I just save those verbatim. If someone gets my "you have to register to keep using this website" account, I'll just create a new one.
 
-## Conclusion - only partially migrating sensitive passwords with HalfKey
+## Conclusion - only partially migrating sensitive passwords
 
 For the accounts that I do care about, for which there is no option to force non-weak(sms/email) 2-factor-authentication, I wanted a way to generate a longer password than the one saved in the password manager. 
 
