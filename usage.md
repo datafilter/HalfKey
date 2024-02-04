@@ -1,13 +1,11 @@
 ## 🧂🌶️ Salt & Pepper to spice up your password 🌶️🧂
 
-[HalfKey](readme.md) uses Salt & Pepper approach similar to how passwords are saved in databases
+[HalfKey](readme.md) is a key stretching approach to supplement login credentials. It uses Salt & Pepper similar to how passwords are saved in databases.
 
 __Salt__:  
 Some random data saved along with each password  
 __Pepper__:  
-A secondary password that you memorize (The same pepper is used for all passwords)
-
-You memorize 2 passwords - your password manager password, and a pepper password.
+A password that you memorize that is different from your password manager password (The same pepper is used for all passwords)
 
 For each sensitive password, you make up and save a unique salt for it.
 
