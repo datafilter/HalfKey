@@ -21,16 +21,16 @@ Automated release on any changes:
 It only runs on your device, doesn't do any network calls, and doesn't read from the clipboard.
 
 __NOTE__:  
-Persistent storage on a PWA is not guaranteed and in the hands of the browser/device. Also, you could lose/break your device. As nothing is uploaded anywhere, __backup your own data__ i.e. save Halfkey data along with your passwords in your password manager.
+Persistent storage on a PWA is not guaranteed, data expiry is owned by the browser/device. As nothing is uploaded anywhere, __backup your own data__ i.e. save Halfkey data along with your passwords in your password manager.
 
-The PWA is written in vanilla js/css without libraries, no build steps, no frameworks. WYSIWYG - less things to review.
+The PWA is written in vanilla js/css. No build steps/framework/libraries, its WYSIWYG so that there are less things to review.
 
 # Goals
 
 * An approach that is relatively easy to memorize
 * Human readable output in a small set characters easy to read and type
 * Can be run on browsers and most operating systems without installing anything
-* If an attacker has your saved passwords, and even one or more derived actual passwords, it is still hard for them to derive the other actual passwords
+* If an attacker has your saved passwords, and even one or more derived actual passwords, it is still hard for them to derive other actual passwords
 
 # Non-goals
 
