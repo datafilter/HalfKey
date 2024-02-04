@@ -2,13 +2,12 @@
 
 ## Code
 
-Any suggestions and discussions are more than welcome! The more eyeballs the merrier.
+Any suggestions and discussions are more than welcome! The more eyeballs the merrier. 
+There is a lot that can be done to improve the css and usability of the PWA.
 
 I'd like to rely on this for a lifetime, and therefore prefer accretion-only changes. In other words, no edits as far as possible and only add new files.
 
-Preferably changes are in new implementations so that users don't experience the app constantly changing out under them. Any significant changes(like using different algorithm or framework) are to be made to [seperate variants of the PWA](/pwa/variants/) with the intent that when one is completed, it doesn't change except for security updates. 
-
-There is a lot that can be done to improve the css and usability of the PWA. I'd welcome any PR's that add content in a new directory in 
+Preferably, changes are new implementations, so that when one is completed, it doesn't change except for security updates. The intent is that users don't experience the app constantly changing out under them. New or [seperate variants of the PWA](/pwa/variants/) belong in one of these two paths:
 ```
 pwa >> variants >> yyymm_offline_description
 or
