@@ -6,15 +6,11 @@ A key stretching approach to supplement login credentials.
 
 [How can you use a password manager, without trusting a password manager?](motivation.md)
 
-I don't want to save my most sensitive passwords exactly.
-
-I want something like a hardware authentication device, but that isn't a physical thing you can lose. Something like 2-factor authentication, for important accounts that don't support any/strong 2FA.
-
-It's usually a bad idea to roll-your-own security algorithms/procedures. Maybe there is a recommended approach to get around this problem that I'm not aware of, and someone will share it! If I find a standard or simpler solution than the approach described here, I'll add a description & reference to it here.
+In order to not save passwords fully, specifically for accounts that don't support any/strong [2FA](https://en.wikipedia.org/wiki/Multi-factor_authentication).
 
 # Web app
 
-How to use the PWA is [explained here](usage.md)
+How to use the PWA is [detailed here](usage.md)
 
 Stable version, updated as needed:  
 [halfkey.datafilter.app](https://halfkey.datafilter.app)  
@@ -87,7 +83,7 @@ const hashHash = await digestMessage(saltHash + pepperHash)
 const finalPassword = "TheToothFairyTakesThe109BusOnTuesdays" + hashHash.substring(0,8)
 ```
 ### Pseudocode
-```
+```python
 s = hash(Detective) = 2653CEEEC1FD951707A31D9E357218EA41A511DB896747A7A41BB6528D927B09
 p = hash(PaintbrushAdvisor) = 155794176D7A7E0F924683FF5A6CFA5E94EF157FD5146305A9D19CE27B4A230D
 h = hash(a + b)
@@ -141,7 +137,3 @@ This intentionally avoids using the saved password(W) as input so that:
 * It is still up to the user to pick a good password to begin with
 * Even if it doesn't add any extra security, at least it doesn't take away any security. Which is similar to just appending the phrase "WithPeanutButter" to the end of saved passwords.
 
-
-# Vue, Angular, React, Elm, Not-a-framework?
-
-Contributions using different approaches are welcome, see [contributing](contributing.md)
