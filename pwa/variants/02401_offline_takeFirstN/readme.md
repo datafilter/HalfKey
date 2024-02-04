@@ -1,4 +1,4 @@
-# 02401_offline_takeLastN
+# 02401_offline_takeFirstN
 
 Implementation of initial concept with pseudocode:
 ```
