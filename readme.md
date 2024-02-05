@@ -23,7 +23,7 @@ It only runs on your device, doesn't do any network calls, and doesn't read from
 __NOTE__:  
 Persistent storage on a PWA is not guaranteed, data expiry is owned by the browser/device. As nothing is uploaded anywhere, __backup your own data__ i.e. save Halfkey data along with your passwords in your password manager.
 
-The PWA is written in vanilla js/css. No build steps/framework/libraries, its WYSIWYG so that there are less things to review.
+The PWA is written in vanilla js. No build steps or js libraries/frameworks, its WYSIWYG so that there are less things to review.
 
 # Goals
 
